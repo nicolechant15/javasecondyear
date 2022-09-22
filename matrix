@@ -1,29 +1,3 @@
-/*public class Main {
-    public static void main(String[] args){
-        int num = 10;
-        int[][] matrix1 = new int[][];
-        for (int i = 0; i<matrix1.length; i++){
-            matrix1[i] = i + 2;
-        }
-        for(int i = 0; i<matrix1.length; i++){
-            System.out.println(matrix1[i]);
-        }
-    }
-}*/
-
-/*public class Main {
-    public static void main(String[] args){
-        int num = 10;
-        int[] matrix1 = new int[5];
-        for (int i = 0; i<matrix1.length; i++){
-            matrix1[i] = i + 2;
-        }
-        for(int i = 0; i<matrix1.length; i++){
-            System.out.println(matrix1[i]);
-        }
-    }
-}*/
-
 public class Matrix {
     public static void main(String[] args) {
         int[][] matrix1 = {             //объявляем и заполняем первую матрицу
@@ -57,7 +31,7 @@ public class Matrix {
         int[][] matrix_sum = new int[size][size];
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[0].length; j++) {
-                matrix_sum[i][j] = matrix1[i][j] + matrix2[i][j]; // ну с вычитанием то же самое, только вместо плюча минус
+                matrix_sum[i][j] = matrix1[i][j] + matrix2[i][j]; // ну с вычитанием то же самое, только вместо плюcа минус
             }
         }
         for (int[] i: matrix_sum){     // выводим третью матрицу - сумму на экран
@@ -111,11 +85,14 @@ public class Matrix {
             }
             System.out.println();
         }
+        
+        
+        // возведение в степень пока неправильно работает
 //
 //        System.out.println("Возведение матрицы в степень");
 //        int[][] matrix_exp = new int[size][size];
 //        int exp = 2;
-//        for (int e = 0; e < exp; e++){
+//        for (int e = 0; e < (exp - 1); e++){
 //            for (int i = 0; i < matrix1.length; i++) {
 //                for (int j = 0; j < matrix1[0].length; j++) {
 //                    for (int k = 0; k < matrix1.length; k++){
