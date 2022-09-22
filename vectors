@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class Vector {
+    public static void main(String[] args) {
+        double[] vector = {1, 2, 3};
+        double[] vector2 = {-2, 3, -1};
+
+
+        System.out.println("Вектор 1: ");
+        System.out.println("(" + vector[0] + "," + " " + vector[1] + "," + " " + vector[2] + ")");
+
+        System.out.println("Вектор 2: ");
+        System.out.println("(" + vector2[0] + "," + " " + vector2[1] + "," + " " + vector2[2] + ")");
+
+        System.out.println("Длина вектора: ");
+        double vector_length = 0;
+        for (double j : vector) {
+            vector_length += (j * j);
+        }
+        vector_length = Math.sqrt(vector_length);
+        System.out.println(vector_length);
+
+        System.out.println("Скалярное произведение: ");
+        double dot_product = 0;
+        dot_product = vector[0] * vector2[0] + vector[1] * vector2[1] + vector[2] * vector2[2];
+        System.out.println(dot_product);
+
+        System.out.println("Векторное произведение: ");
+        double vector_product_x = 0;
+        double vector_product_y = 0;
+        double vector_product_z = 0;
+        vector_product_x = vector[1] * vector2[2] - vector[2] * vector2[1];
+        vector_product_y = vector[2] * vector2[0] - vector[0] * vector2[2];
+        vector_product_z = vector[0] * vector2[1] - vector[1] * vector[0];
+        System.out.println("(" + vector_product_x + "," + " " + vector_product_y + "," + " " + vector_product_z + ")");
+
+        System.out.println("Kосинус угла между векторами: ");
+        double vector2_length = 0;
+        for (double j : vector2) {
+            vector2_length += (j * j);
+        }
+        vector2_length = Math.sqrt(vector2_length);
+
+        double cos = 0;
+        cos = dot_product/(Math.abs(vector_length) * Math.abs(vector2_length));
+        System.out.println(cos);
+
+        System.out.println("Сумма векторов: ");
+        double[] sum_vector = new double[3];
+        sum_vector[0] = vector[0] + vector2[0];
+        sum_vector[1] = vector[1] + vector2[1];
+        sum_vector[2] = vector[2] + vector2[2];
+        System.out.println("(" + sum_vector[0] + "," + " " + sum_vector[1] + "," + " " + sum_vector[2] + ")");
+
+        System.out.println("Разность векторов: ");
+        double[] div_vector = new double[3];
+        div_vector[0] = vector[0] - vector2[0];
+        div_vector[1] = vector[1] - vector2[1];
+        div_vector[2] = vector[2] - vector2[2];
+        System.out.println("(" + div_vector[0] + "," + " " + div_vector[1] + "," + " " + div_vector[2] + ")");
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int size = in.nextInt();
+        double[] random_vector = new double[size];
+        for (int i = 0; i < random_vector.length; i++){
+            random_vector[i] = Math.random();
+        }
+        
+        for (int i = 0; i < random_vector.length; i++) {
+            System.out.print(random_vector[i] + " ");
+        }
+
+        in.close();
+    }
+}
