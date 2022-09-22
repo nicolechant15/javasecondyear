@@ -1,0 +1,135 @@
+/*public class Main {
+    public static void main(String[] args){
+        int num = 10;
+        int[][] matrix1 = new int[][];
+        for (int i = 0; i<matrix1.length; i++){
+            matrix1[i] = i + 2;
+        }
+        for(int i = 0; i<matrix1.length; i++){
+            System.out.println(matrix1[i]);
+        }
+    }
+}*/
+
+/*public class Main {
+    public static void main(String[] args){
+        int num = 10;
+        int[] matrix1 = new int[5];
+        for (int i = 0; i<matrix1.length; i++){
+            matrix1[i] = i + 2;
+        }
+        for(int i = 0; i<matrix1.length; i++){
+            System.out.println(matrix1[i]);
+        }
+    }
+}*/
+
+public class Matrix {
+    public static void main(String[] args) {
+        int[][] matrix1 = {             //объявляем и заполняем первую матрицу
+                {1, 0, -3},
+                {4, -5, 0},
+                {-7, 8, -9}};
+
+        int[][] matrix2 = {             //объявляем и заполняем вторую матрицу
+                {-3, 0, 4},
+                {1, -2, -6},
+                {0, 7, -1}};
+
+        System.out.println("Матрица 1");    // выводим на экран первую
+        for (int[] i: matrix1){
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Матрица 2");     // вторую
+        for (int[] i: matrix2){
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Сумма"); // находим сумму, перебирая элементы мартриц по индексам и заполняя тертью матрицу
+        int size = matrix1.length;
+        int[][] matrix_sum = new int[size][size];
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[0].length; j++) {
+                matrix_sum[i][j] = matrix1[i][j] + matrix2[i][j]; // ну с вычитанием то же самое, только вместо плюча минус
+            }
+        }
+        for (int[] i: matrix_sum){     // выводим третью матрицу - сумму на экран
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Умножение матрицы (первой, например) на число");
+        int[][] matrix_num = new int[size][size];
+        int number = 10;
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[0].length; j++) {
+                matrix_num[i][j] = matrix1[i][j] * number;  // каждый элемент массива умножаем на число
+            }
+        }
+        for (int[] i: matrix_num){
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Произведение двух матриц");
+        int[][] matrix_mult = new int[size][size];
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[0].length; j++) {
+                for (int k = 0; k < matrix1.length; k++){
+                    matrix_mult[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+        for (int[] i: matrix_mult){
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Транспонированная мартица (пусть вторая)");
+        int[][] matrix_t = new int[size][size];
+        for (int i = 0; i < matrix2.length; i++) {
+            for (int j = 0; j < matrix1[0].length; j++) {
+                matrix_t[i][j] = matrix2[j][i];
+            }
+        }
+        for (int[] i: matrix_t){
+            for (int k: i){
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+//
+//        System.out.println("Возведение матрицы в степень");
+//        int[][] matrix_exp = new int[size][size];
+//        int exp = 2;
+//        for (int e = 0; e < exp; e++){
+//            for (int i = 0; i < matrix1.length; i++) {
+//                for (int j = 0; j < matrix1[0].length; j++) {
+//                    for (int k = 0; k < matrix1.length; k++){
+//                        matrix_exp[i][j] += matrix1[i][k] * matrix1[k][j];
+//                    }
+//                }
+//            }
+//        }
+//        for (int[] i: matrix_exp){
+//            for (int k: i){
+//                System.out.print(k + " ");
+//            }
+//            System.out.println();
+//        }
+
+    }
+}
