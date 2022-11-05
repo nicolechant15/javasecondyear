@@ -1,0 +1,10 @@
+public class CarMain {
+    public static void main(String[] args) {
+        Nissan car1 = new Nissan("White", 250, "Auto", 100, 2000000);
+        Honda car2 = new Honda("Black", 300, "Mech", 90, 2500000, 5);
+        car1.start("Да");
+        car1.stop("Нет");
+        car2.accelerate(3);
+        car1.beep();
+    }
+}
