@@ -1,0 +1,47 @@
+class First extends Thread{
+    String name; // объявляем строковую переменную
+    First(String name){ // создаем конструктор
+        this.name = name;
+    }
+
+    public void run() { // объявляем основной метод
+        while(true){
+            System.out.println(name); // выводим имя потока в бесконечном цикле
+            try {
+                sleep(100); // "вводим в сон" поток на 100 миллисек чтобы избежать взаимоблокировки
+            }
+            catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+}
+
+class Second extends Thread{
+    String name;
+    Second(String name){
+        this.name = name;
+    }
+
+    public void run() {
+        while(true){
+            System.out.println(name);
+            try {
+                sleep(100);
+            }
+            catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+}
+
+public class ThreadNames {
+    public static void main(String[] args) {
+        First first = new First("Первый"); // объявляем первый поток
+        Second second = new Second("Второй"); // объявляем второй поток
+
+        first.start(); // начинаем выполнение первого потока
+        second.start(); // начинаем выполнение второго потока
+    }
+}
