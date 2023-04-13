@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Собери свой поке</title>
+    <!--link rel="stylesheet" th:href="@{/styles.css}"/-->
+    </head>
+
+<body>
+<h1>Собери свой поке</h1>
+<!--img th:src="@{/images/taco.jpg}" /-->
+
+<form th:object="${poke}" method="post">
+        <span class="validationError"
+              th:if="${#fields.hasErrors('fillings')}"
+              th:errors="*{fillings}">ошибка</span>
+
+    <div class="grid">
+        <div class="filling-group" id="base">
+            <h3>Выбери основу</h3>
+            <div th:each="filling: ${base}">
+                <input type="checkbox" th:field="*{filling}" th:value="${filling.id}"/>
+                <span th:text="${filling.name}">Наполнение</span><br/>
+            </div>
+        </div>
+        <div class="filling-group" id="stuffing">
+            <h3>Выбери наполнение</h3>
+            <div th:each="filling: ${stuffing}">
+                <input type="checkbox" th:field="*{fillings}" th:value="${filling.id}"/>
+                <span th:text="${filling.name}">Наполнение</span><br/>
+            </div>
+        </div>
+        <input type="text" th:field="*{name}">
+        <button>Создать поке</button>
+    </div>
+</form>
+</body>
+</html>

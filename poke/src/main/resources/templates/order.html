@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <title>Оформление заказа</title>
+</head>
+
+<body>
+<h1>Оформление заказа</h1>
+
+<form th:action="@{/orders}" method="post" th:object="${pokeOrder}">
+  <a th:href="@{/maker}" id="another">Создай другой поке</a>
+  <ul>
+    <li th:each="poke: ${pokeOrder.pokes}">
+      <span th:text="${poke.name}">Название поке</span>
+
+    </li>
+  </ul>
+
+  <div th:if="${#fields.hasErrors()}">
+            <span class="validationError">
+                Вы ввели что-то не так
+            </span>
+  </div>
+  <h3>Адрес доставки</h3>
+  <label for="deliveryStreet">Улица: </label>
+  <input type="text" th:field="*{deliveryStreet}"/>
+  <label for="deliveryCity">Город: </label>
+  <input type="text" th:field="*{deliveryCity}"/>
+  <label for="ccNumber">Номер карты: </label>
+  <input type="text" th:field="*{ccNumber}"/>
+  <label for="ccExpiration">MM/YY: </label>
+  <input type="text" th:field="*{ccExpiration}"/>
+  <label for="ccCVV">CVV: </label>
+  <input type="text" th:field="*{ccCVV}"/>
+
+  <input type="submit">
+</form>
+<h3>Мы уже начали готовить</h3>
+</body>
+</html>
